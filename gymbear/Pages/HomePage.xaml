@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="gymbear.Pages.HomePage"
+    BackgroundColor="{StaticResource Accent2}"
+    Padding="20">
+    <ContentPage.Content>
+        <Frame
+            Padding="20"
+            HasShadow="false">
+            <StackLayout>
+                <Label
+                    HorizontalOptions="Center"
+                    FontSize="24"
+                    Text="Welcome, today is $DAY"/>
+                <Image
+                    WidthRequest="200"
+                    HeightRequest="200"
+                    BackgroundColor="{StaticResource Accent0}"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"/>
+                <Button
+                    Text="Start Workout"
+                    FontSize="17"
+                    BackgroundColor="{StaticResource Accent0}"
+                    TextColor="{StaticResource Accent2}"
+                    FontAttributes="Bold"
+                    BorderRadius="0"
+                    VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

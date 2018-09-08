@@ -11,7 +11,8 @@ namespace gymbear
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage mainPage = new MainPage() { Title = "Gymbear" };
+            MainPage = new NavigationPage(mainPage);
         }
 
         protected override void OnStart()

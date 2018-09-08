@@ -24,8 +24,18 @@ namespace gymbear.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-
+            SetupViews();
             return base.FinishedLaunching(app, options);
+        }
+
+        //
+        // This method modify the view of the application specified by
+        // the programmer.
+        // Here can be found the color of the UINavigationBar
+        void SetupViews()
+        {
+            UINavigationBar.Appearance.BarTintColor = new UIColor(red: 0.17f, green: 0.22f, blue: 1.00f, alpha: 1.0f);
+            UINavigationBar.Appearance.TintColor = UIColor.White;
         }
     }
 }
