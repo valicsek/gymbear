@@ -6,32 +6,37 @@
     BackgroundColor="{StaticResource Accent2}"
     Padding="20">
     <ContentPage.Content>
-        <Frame
-            Padding="20"
-            HasShadow="false">
-            <StackLayout>
-                <Label
-                    HorizontalOptions="Center"
-                    FontSize="24"
-                    Text="Welcome, today is"/>
-                <Label
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center"
-                    Text="$DAY" />
-                <Image
-                    x:Name="HomeImage"
-                    Aspect="AspectFit"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"/>
-                <Button
-                    Text="Start Workout"
-                    FontSize="17"
-                    BackgroundColor="{StaticResource Accent0}"
-                    TextColor="{StaticResource Accent2}"
-                    FontAttributes="Bold"
-                    BorderRadius="0"
-                    VerticalOptions="EndAndExpand"/>
-            </StackLayout>
-        </Frame>
+        <ScrollView>
+            <Frame
+                Padding="20"
+                BackgroundColor="White"
+                HasShadow="false">
+                <StackLayout>
+                    <Label
+                        HorizontalOptions="Center"
+                        FontSize="24"
+                        TextColor="Black"
+                        Text="Welcome, today is"/>
+                    <Label
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        TextColor="Black"
+                        Text="$DAY" />
+                    <Image
+                        x:Name="HomeImage"
+                        Aspect="AspectFit"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+                    <Button
+                        Text="Start Workout"
+                        FontSize="17"
+                        BackgroundColor="{StaticResource Accent0}"
+                        TextColor="{StaticResource Accent2}"
+                        FontAttributes="Bold"
+                        BorderRadius="0"
+                        VerticalOptions="EndAndExpand"/>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
