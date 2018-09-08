@@ -13,13 +13,16 @@
                 <Label
                     HorizontalOptions="Center"
                     FontSize="24"
-                    Text="Welcome, today is $DAY"/>
+                    Text="Welcome, today is"/>
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="$DAY" />
                 <Image
-                    WidthRequest="200"
-                    HeightRequest="200"
-                    BackgroundColor="{StaticResource Accent0}"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="CenterAndExpand"/>
+                    x:Name="HomeImage"
+                    Aspect="AspectFit"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
                 <Button
                     Text="Start Workout"
                     FontSize="17"

@@ -15,6 +15,12 @@ namespace gymbear.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            setupViews();
+        }
+
+        void setupViews()
+        {
+            this.HomeImage.Source = ImageSource.FromResource("gymbear.Assets.Images.man-logo-home.png");
         }
     }
 }

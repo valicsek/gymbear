@@ -36,6 +36,7 @@ namespace gymbear.iOS
         {
             UINavigationBar.Appearance.BarTintColor = new UIColor(red: 0.17f, green: 0.22f, blue: 1.00f, alpha: 1.0f);
             UINavigationBar.Appearance.TintColor = UIColor.White;
+            UIBarButtonItem.Appearance.TintColor = UIColor.White;
         }
     }
 }

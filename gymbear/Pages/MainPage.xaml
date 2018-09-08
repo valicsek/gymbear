@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TabbedPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:local="clr-namespace:gymbear.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:gymbear"
+    xmlns:pages="clr-namespace:gymbear.Pages"
     x:Class="gymbear.MainPage">
-        <local:HomePage Title="Home"/>
-        <local:HomePage Title="Workout"/>
-        <local:HomePage Title="Exercises"/>
-        <local:HomePage Title="Settings"/>
+        <pages:HomePage Icon="home.png" Title="Home"/>
+        <pages:HomePage Icon="workout.png" Title="Workout"/>
+        <pages:HomePage Icon="exercise.png" Title="Exercises"/>
+        <pages:HomePage Icon="settings.png" Title="Settings"/>
 </TabbedPage>

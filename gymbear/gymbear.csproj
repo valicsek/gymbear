@@ -14,5 +14,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
+    <Folder Include="Assets\" />
+    <Folder Include="Assets\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Images\man-logo-home.png" />
+    <None Remove="Assets\Images\man-logo-home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Images\man-logo-home.png" />
   </ItemGroup>
 </Project>
