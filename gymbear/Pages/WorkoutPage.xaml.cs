@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using gymbear.ViewModel;
+using gymbear.ViewModels;
 using Xamarin.Forms;
 
 namespace gymbear.Pages
