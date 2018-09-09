@@ -6,7 +6,7 @@
     xmlns:pages="clr-namespace:gymbear.Pages"
     x:Class="gymbear.MainPage">
         <pages:HomePage Icon="home.png" Title="Home"/>
-        <pages:HomePage Icon="workout.png" Title="Workout"/>
+        <pages:WorkoutPage Icon="workout.png" Title="Workout"/>
         <pages:HomePage Icon="exercise.png" Title="Exercises"/>
         <pages:HomePage Icon="settings.png" Title="Settings"/>
 </TabbedPage>
