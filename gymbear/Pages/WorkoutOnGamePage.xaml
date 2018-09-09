@@ -1,5 +1,39 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="gymbear.Pages.WorkoutOnGamePage">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="gymbear.Pages.WorkoutOnGamePage"
+    Padding="20"
+    BackgroundColor="{StaticResource Accent2}">
+    <StackLayout>
+        <Label Text="Name of the exercise" />
+        <Label Text="Timer: 00:00" />
+        <Frame
+            HasShadow="false"
+            BackgroundColor="White"
+            >
+            <Image
+                WidthRequest="50"
+                HeightRequest="200"
+                BackgroundColor="Blue"/>
+            
+        </Frame>
+            <Button
+                Text="Next Exercise"
+                Clicked="OnNextExerciseButtonClicked"
+                FontSize="17"
+                BackgroundColor="{StaticResource Accent0}"
+                TextColor="{StaticResource Accent2}"
+                FontAttributes="Bold"
+                BorderRadius="0"
+                VerticalOptions="EndAndExpand"/>
+           <Button
+                Text="Cancel"
+                Clicked="OnCancelButtonClicked"
+                FontSize="17"
+                BackgroundColor="{StaticResource Accent3}"
+                TextColor="{StaticResource Accent2}"
+                FontAttributes="Bold"
+                BorderRadius="0"/>        
+    </StackLayout>
 </ContentPage>
