@@ -16,6 +16,10 @@
     <Folder Include="Pages\" />
     <Folder Include="Assets\" />
     <Folder Include="Assets\Images\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
+    <Folder Include="Config\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Images\man-logo-home.png" />
