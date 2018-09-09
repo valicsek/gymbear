@@ -21,7 +21,7 @@
                         FontAttributes="Bold"
                         HorizontalOptions="Center"
                         TextColor="Black"
-                        Text="$DAY" />
+                        Text="{Binding Day}" />
                     <Image
                         x:Name="HomeImage"
                         Aspect="AspectFit"
@@ -29,6 +29,7 @@
                         HorizontalOptions="Center"/>
                     <Button
                         Text="Start Workout"
+                        Clicked="OnStartWorkoutButtonClicked"
                         FontSize="17"
                         BackgroundColor="{StaticResource Accent0}"
                         TextColor="{StaticResource Accent2}"

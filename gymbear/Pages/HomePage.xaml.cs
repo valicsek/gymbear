@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using gymbear.ViewModels;
 using Xamarin.Forms;
 
 namespace gymbear.Pages
 {
     public partial class HomePage : ContentPage
     {
+        public HomeViewModel VM;
         public HomePage()
         {
             InitializeComponent();
+            this.VM = new HomeViewModel();
+            this.BindingContext = this.VM;
         }
 
         protected override void OnAppearing()
@@ -21,6 +24,11 @@ namespace gymbear.Pages
         void setupViews()
         {
             this.HomeImage.Source = ImageSource.FromResource("gymbear.Assets.Images.man-logo-home.png");
+        }
+
+        void OnStartWorkoutButtonClicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new WorkoutOnGamePage());
         }
     }
 }
