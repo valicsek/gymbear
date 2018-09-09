@@ -1,9 +1,9 @@
 ﻿using System;
 using gymbear.Models;
 
-namespace gymbear.ViewModel
+namespace gymbear.ViewModels
 {
-    public class WorkoutModelView
+    public class WorkoutModelView : ViewModel
     {
         public Workout SelectedWorkout { get; set; }
 

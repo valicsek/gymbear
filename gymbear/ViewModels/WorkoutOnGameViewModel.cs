@@ -3,9 +3,14 @@ using gymbear.Config;
 
 namespace gymbear.ViewModels
 {
-    public class WorkoutOnGameViewModel
+    public class WorkoutOnGameViewModel: ViewModel
     {
-        public int BreakTimeLeft { get; set; }
+        private int breakTimeLeft;
+        public int BreakTimeLeft
+        {
+            get => breakTimeLeft;
+            set => SetField<int>(ref breakTimeLeft, value);
+        }
 
         public WorkoutOnGameViewModel()
         {

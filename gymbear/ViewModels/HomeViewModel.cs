@@ -1,7 +1,7 @@
 ﻿using System;
 namespace gymbear.ViewModels
 {
-    public class HomeViewModel
+    public class HomeViewModel : ViewModel
     {
         public string Day
         {

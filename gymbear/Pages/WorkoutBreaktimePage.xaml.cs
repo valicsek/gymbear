@@ -26,7 +26,11 @@ namespace gymbear.Pages
         {
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
-                if (this.VM.BreakTimeLeft == 0) return false;
+                if (this.VM.BreakTimeLeft == 0)
+                {
+                    Navigation.PopModalAsync();
+                    return false;
+                }
                 this.VM.BreakTimeLeft--;
                 return true;
             });
