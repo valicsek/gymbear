@@ -37,6 +37,7 @@ namespace gymbear.Pages
 
         void OnNextExerciseButtonClicked(object sender, System.EventArgs e)
         {
+            Navigation.PushModalAsync(new WorkoutBreaktimePage());
             var hasMoreExercise = this.VM.ShowNextExercise();
             if (!hasMoreExercise)
             {

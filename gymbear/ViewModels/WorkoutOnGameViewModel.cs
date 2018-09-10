@@ -40,7 +40,7 @@ namespace gymbear.ViewModels
 
         public WorkoutOnGameViewModel()
         {
-            this.BreakTimeLeft = AppConfig.DefaultBreakTimeLeft;
+            this.BreakTimeLeft = (int) Application.Current.Properties["BreakTime"];
             this.elapsedSecond = 0;
             this.Timer = "Timer: 00:00:00";
             this.LoadWorkout();

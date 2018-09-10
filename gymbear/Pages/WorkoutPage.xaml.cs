@@ -18,7 +18,10 @@ namespace gymbear.Pages
 
         void OnStartWorkoutButtonClicked(object sender, System.EventArgs e)
         {
-            Navigation.PushModalAsync(new WorkoutOnGamePage());
+            Application.Current.Properties["BreakTime"] = this.VM.BreakTime;
+            Application.Current.Properties["NuOfSets"] = this.VM.NuOfSets;
+            Application.Current.Properties["NuOfRepetitions"] = this.VM.NuOfRepetitions;
+            Navigation.PushAsync(new WorkoutOnGamePage());
         }
     }
 }

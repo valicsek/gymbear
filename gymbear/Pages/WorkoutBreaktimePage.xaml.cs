@@ -56,6 +56,11 @@ namespace gymbear.Pages
             // TODO: Add Android Alert sound as well.
         }
 
+        void OnPauseButtonClicked(object sender, System.EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         void OnSkipButtonClicked(object sender, System.EventArgs e)
         {
             Navigation.PopModalAsync();

@@ -48,6 +48,46 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollView>
+                <StackLayout>
+        <Frame
+            HasShadow="false">
+            <StackLayout>
+                <Label
+                    Text="Settings"
+                    HorizontalOptions="Center"
+                    FontSize="24"
+                    FontAttributes="Bold"/>
+                <StackLayout 
+                    Orientation="Horizontal"
+                    >
+                    <Label Text="Breaktime"/>
+                    <Label Text="{Binding BreakTime}" FontAttributes="Bold" />
+                    <Stepper
+                        Maximum="1000"
+                        Increment="10"
+                        HorizontalOptions="EndAndExpand"
+                        Value="{Binding BreakTime}"/>
+                </StackLayout>
+                <StackLayout 
+                    Orientation="Horizontal"
+                    >
+                    <Label Text="Number of Sets"/>
+                    <Label Text="{Binding NuOfSets}" FontAttributes="Bold"/>
+                    <Stepper HorizontalOptions="EndAndExpand"
+                             Value="{Binding NuOfSets}"/>
+                </StackLayout>
+                <StackLayout 
+                    Orientation="Horizontal"
+                    >
+                    <Label Text="Number of Repetition"/>
+                    <Label Text="{Binding NuOfRepetitions}" FontAttributes="Bold"/>                    
+                <Stepper
+                    HorizontalOptions="EndAndExpand"
+                    Value="{Binding NuOfRepetitions}"/>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
             <Button
                 Text="Start Workout"
                 FontSize="17"

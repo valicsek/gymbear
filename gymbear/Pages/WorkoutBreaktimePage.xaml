@@ -21,6 +21,11 @@
             FontAttributes="Bold"
             TextColor="White"/>
         <Button
+            Text="Pause"
+            Clicked="OnPauseButtonClicked"
+            BackgroundColor="{StaticResource Accent0}"
+            TextColor="White"/>
+        <Button
             Text="Skip"
             Clicked="OnSkipButtonClicked"
             BackgroundColor="{StaticResource Accent0}"

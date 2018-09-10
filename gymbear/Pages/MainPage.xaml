@@ -8,5 +8,4 @@
         <pages:HomePage Icon="home.png" Title="Home"/>
         <pages:WorkoutPage Icon="workout.png" Title="Workout"/>
         <pages:HomePage Icon="exercise.png" Title="Exercises"/>
-        <pages:HomePage Icon="settings.png" Title="Settings"/>
 </TabbedPage>
