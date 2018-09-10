@@ -17,15 +17,30 @@ namespace gymbear.Pages
             SetupViews();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            this.StartTimer();
+        }
+
         void SetupViews()
         {
             NavigationPage.SetHasBackButton(this, false);
             this.Title = "Workout";
         }
 
+        void StartTimer()
+        {
+            this.VM.StartTimer();
+        }
+
         void OnNextExerciseButtonClicked(object sender, System.EventArgs e)
         {
-            Navigation.PushModalAsync(new WorkoutBreaktimePage());
+            var hasMoreExercise = this.VM.ShowNextExercise();
+            if (!hasMoreExercise)
+            {
+                Navigation.PopAsync();
+            }
         }
 
         void OnCancelButtonClicked(object sender, System.EventArgs e)

@@ -6,8 +6,8 @@
     Padding="20"
     BackgroundColor="{StaticResource Accent2}">
     <StackLayout>
-        <Label Text="Name of the exercise" />
-        <Label Text="Timer: 00:00" />
+        <Label Text="{Binding CurrentExercise.Name}" />
+        <Label Text="{Binding Timer}" />
         <Frame
             HasShadow="false"
             BackgroundColor="White"
