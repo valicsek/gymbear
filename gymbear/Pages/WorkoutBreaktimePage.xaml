@@ -16,11 +16,11 @@
             HorizontalOptions="Center"/>
         <Label 
             Text="{Binding BreakTimeLeft}"
-            FontSize="24"
+            FontSize="72"
             HorizontalOptions="Center"
             FontAttributes="Bold"
             TextColor="White"/>
-        <Button 
+        <Button
             Text="Skip"
             Clicked="OnSkipButtonClicked"
             BackgroundColor="{StaticResource Accent0}"
