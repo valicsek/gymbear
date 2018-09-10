@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using gymbear.Models;
 using gymbear.Services;
 using Xamarin.Forms;
@@ -42,7 +43,7 @@ namespace gymbear.ViewModels
         {
             this.SelectedWorkout = null;
             this.Workout = Service.GetWorkoutByDay(0);
-
+ 
             if (Application.Current.Properties.ContainsKey("BreakTime"))
                 this.BreakTime = (int)Application.Current.Properties["BreakTime"];
             if (Application.Current.Properties.ContainsKey("NuOfSets"))

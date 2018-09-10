@@ -37,7 +37,6 @@ namespace gymbear.Pages
 
         void OnNextExerciseButtonClicked(object sender, System.EventArgs e)
         {
-            Navigation.PushModalAsync(new WorkoutBreaktimePage());
             var hasMoreExercise = this.VM.ShowNextExercise();
             if (!hasMoreExercise)
             {
@@ -49,6 +48,16 @@ namespace gymbear.Pages
         {
             // Remove current Page.
             Navigation.PopAsync();
+        }
+
+        void OnSetSwitchToggled(object sender, Xamarin.Forms.ToggledEventArgs e)
+        {
+            Switch _sender = sender as Switch;
+
+            if(_sender.IsToggled)
+            {
+                Navigation.PushModalAsync(new WorkoutBreaktimePage());
+            }
         }
     }
 }

@@ -60,7 +60,7 @@
                 <StackLayout 
                     Orientation="Horizontal"
                     >
-                    <Label Text="Breaktime"/>
+                    <Label Text="Breaktime:"/>
                     <Label Text="{Binding BreakTime}" FontAttributes="Bold" />
                     <Stepper
                         Maximum="1000"
@@ -71,7 +71,7 @@
                 <StackLayout 
                     Orientation="Horizontal"
                     >
-                    <Label Text="Number of Sets"/>
+                    <Label Text="Number of Sets:"/>
                     <Label Text="{Binding NuOfSets}" FontAttributes="Bold"/>
                     <Stepper HorizontalOptions="EndAndExpand"
                              Value="{Binding NuOfSets}"/>
@@ -79,7 +79,7 @@
                 <StackLayout 
                     Orientation="Horizontal"
                     >
-                    <Label Text="Number of Repetition"/>
+                    <Label Text="Number of Repetition:"/>
                     <Label Text="{Binding NuOfRepetitions}" FontAttributes="Bold"/>                    
                 <Stepper
                     HorizontalOptions="EndAndExpand"

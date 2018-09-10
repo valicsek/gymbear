@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using gymbear.Config;
 using gymbear.Models;
 using gymbear.Services;
@@ -9,7 +10,6 @@ namespace gymbear.ViewModels
     public class WorkoutOnGameViewModel: ViewModel
     {
         private int indexOfCurrentExercise;
-        private int elapsedSecond;
 
         private string timer;
         public string Timer
@@ -33,17 +33,26 @@ namespace gymbear.ViewModels
         }
 
         private Workout workout;
-        public Workout Workout {
+        public Workout Workout
+        {
             get => workout;
             set => SetField<Workout>(ref workout, value);
+        }
+
+        int[] sets;
+        public int[] Sets
+        {
+            get => sets;
+            set => SetField<int[]>(ref sets, value);
         }
 
         public WorkoutOnGameViewModel()
         {
             this.BreakTimeLeft = (int) Application.Current.Properties["BreakTime"];
-            this.elapsedSecond = 0;
             this.Timer = "Timer: 00:00:00";
             this.LoadWorkout();
+
+            this.Sets = new int[(int)Application.Current.Properties["NuOfSets"]];
         }
 
         void LoadWorkout()
@@ -71,6 +80,7 @@ namespace gymbear.ViewModels
         //
         public bool ShowNextExercise()
         {
+            this.Sets = new int[(int)Application.Current.Properties["NuOfSets"]];
             this.indexOfCurrentExercise++;
             if (this.indexOfCurrentExercise < this.Workout.Exercises.Count)
             {

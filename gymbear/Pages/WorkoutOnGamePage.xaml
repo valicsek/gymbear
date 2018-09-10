@@ -13,16 +13,37 @@
             HorizontalOptions="Center"/>
         <Label 
             Text="{Binding Timer}"
-            FontSize="18"/>
+            FontSize="18"
+            HorizontalOptions="Center"/>
         <Frame
             HasShadow="false"
             BackgroundColor="White"
             >
             <Image
-                WidthRequest="50"
-                HeightRequest="200"
-                BackgroundColor="Blue"/>
-            
+                MinimumWidthRequest="100"
+                MinimumHeightRequest="100"
+                BackgroundColor="Red"/>
+            <StackLayout>
+                <ListView
+                    ItemsSource="{Binding Sets}"
+                    SeparatorColor="Transparent">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                               <StackLayout
+                                        Orientation="Horizontal">
+                                        <Label 
+                                            Text="Set #"
+                                            FontAttributes="Bold"/>
+                                        <Switch 
+                                            HorizontalOptions="EndAndExpand"
+                                            Toggled="OnSetSwitchToggled"/>
+                                </StackLayout>                                
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>            
+            </StackLayout>
         </Frame>
             <Button
                 Text="Next Exercise"
