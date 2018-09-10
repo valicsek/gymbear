@@ -41,7 +41,7 @@ namespace gymbear.ViewModels
         {
             this.BreakTimeLeft = AppConfig.DefaultBreakTimeLeft;
             this.elapsedSecond = 0;
-            this.Timer = "00:00:00";
+            this.Timer = "Timer: 00:00:00";
             this.LoadWorkout();
         }
 
@@ -62,7 +62,7 @@ namespace gymbear.ViewModels
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
                 _elapsed = _elapsed.Add(TimeSpan.FromSeconds(1));
-                this.Timer = _elapsed.ToString();
+                this.Timer = String.Format("Timer: {0}", _elapsed.ToString());
                 return true;
             });
         }
