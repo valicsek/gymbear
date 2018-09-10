@@ -1,6 +1,7 @@
 ﻿using System;
 using gymbear.Config;
 using gymbear.Models;
+using gymbear.Services;
 using Xamarin.Forms;
 
 namespace gymbear.ViewModels
@@ -47,10 +48,7 @@ namespace gymbear.ViewModels
 
         void LoadWorkout()
         {
-            this.Workout = new Workout();
-            this.Workout.Exercises.Add(new Exercise { Name = "Back push", ExerciseType = ExerciseType.Back });
-            this.Workout.Exercises.Add(new Exercise { Name = "Chest push", ExerciseType = ExerciseType.Chest });
-
+            this.Workout = Service.GetWorkoutByDay(0);
             this.indexOfCurrentExercise = 0;
             this.currentExercise = this.Workout.Exercises[this.indexOfCurrentExercise];
         }
