@@ -15,12 +15,13 @@ namespace gymbear.Pages
             this.VM = new WorkoutOnGameViewModel();
             this.BindingContext = this.VM;
             SetupViews();
+            this.StartTimer();
         }
+
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            this.StartTimer();
         }
 
         void SetupViews()
