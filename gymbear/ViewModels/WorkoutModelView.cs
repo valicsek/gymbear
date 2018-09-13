@@ -73,13 +73,35 @@ namespace gymbear.ViewModels
             this.Workout = Service.GetWorkoutByDay(this.CurrentWorkoutIndex);
             this.noExerciseHasBeenAdded = this.Workout.Exercises.Count == 0;
 
+            try
+            {
+                if (Application.Current.Properties.ContainsKey("BreakTime"))
+                    this.BreakTime = (int)Application.Current.Properties["BreakTime"];
+            }
+            catch 
+            {
+                this.BreakTime = 0;
+            }
 
-            if (Application.Current.Properties.ContainsKey("BreakTime"))
-                this.BreakTime = (int)Application.Current.Properties["BreakTime"];
-            if (Application.Current.Properties.ContainsKey("NuOfSets"))
-                this.NuOfSets = (int)Application.Current.Properties["NuOfSets"];
-            if (Application.Current.Properties.ContainsKey("NuOfRepetitions"))
-                this.NuOfRepetitions = (int)Application.Current.Properties["NuOfRepetitions"];
+            try
+            {
+                if (Application.Current.Properties.ContainsKey("NuOfSets"))
+                    this.NuOfSets = (int)Application.Current.Properties["NuOfSets"];
+            }
+            catch
+            {
+                this.NuOfSets = 0;
+            }
+            
+            try
+            {
+                if (Application.Current.Properties.ContainsKey("NuOfRepetitions"))
+                    this.NuOfRepetitions = (int)Application.Current.Properties["NuOfRepetitions"];
+            }
+            catch
+            {
+                this.NuOfRepetitions = 0;
+            }
         }
     }
 }
