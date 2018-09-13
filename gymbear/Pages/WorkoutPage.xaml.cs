@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using gymbear.Models;
 using gymbear.ViewModels;
 using Xamarin.Forms;
+using System.Linq;
+using gymbear.Services;
 
 namespace gymbear.Pages
 {
@@ -16,12 +19,60 @@ namespace gymbear.Pages
             this.BindingContext = this.VM;
         }
 
+        /// <summary>
+        /// The start workout button clicked.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         void OnStartWorkoutButtonClicked(object sender, System.EventArgs e)
         {
-            Application.Current.Properties["BreakTime"] = this.VM.BreakTime;
-            Application.Current.Properties["NuOfSets"] = this.VM.NuOfSets;
-            Application.Current.Properties["NuOfRepetitions"] = this.VM.NuOfRepetitions;
-            Navigation.PushAsync(new WorkoutOnGamePage());
+            try
+            {
+                Service.SaveLocalConfig("BreakTime", this.VM.BreakTime);
+                Service.SaveLocalConfig("NuOfSets", this.VM.NuOfSets);
+                Service.SaveLocalConfig("NuOfRepetitions", this.VM.NuOfRepetitions);
+
+                Navigation.PushAsync(new WorkoutOnGamePage());
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error", ex.Message, "OK");
+            }
+        }
+
+        /// <summary>
+        /// The plus button clicked.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
+        void OnPlusButtonClicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new AddExerciseToWorkoutPage());
+        }
+
+        /// <summary>
+        /// The delete exercise action clicked.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
+        void OnDeleteExerciseActionClicked(object sender, System.EventArgs e)
+        {
+            var _obj = (Exercise)(sender as MenuItem).CommandParameter;
+            try
+            {
+                Services.DatabaseService<Exercise>.Delete(_obj);
+
+                Week week = Services.Service.GetWeek();
+                week.Workout[this.VM.CurrentWorkoutIndex].Exercises.Remove(_obj);
+                Services.Service.UploadWeek(week);
+
+
+                DisplayAlert("Info", "Successfuly deleted", "OK");
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error", ex.Message, "OK");
+            }
         }
     }
 }

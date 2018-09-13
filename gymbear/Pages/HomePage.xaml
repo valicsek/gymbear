@@ -19,6 +19,7 @@
                         Text="Welcome, today is"/>
                     <Label
                         FontAttributes="Bold"
+                        FontSize="36"
                         HorizontalOptions="Center"
                         TextColor="Black"
                         Text="{Binding Day}" />

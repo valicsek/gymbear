@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace gymbear.ViewModels
 {
-    public class WorkoutOnGameViewModel: ViewModel
+    public class WorkoutOnGameViewModel : ViewModel
     {
         private int indexOfCurrentExercise;
 
@@ -48,20 +48,31 @@ namespace gymbear.ViewModels
 
         public WorkoutOnGameViewModel()
         {
-            this.BreakTimeLeft = (int) Application.Current.Properties["BreakTime"];
+            this.BreakTimeLeft = (int)Application.Current.Properties["BreakTime"];
+            this.indexOfCurrentExercise = 0;
             this.Timer = "Timer: 00:00:00";
             this.LoadWorkout();
 
             this.Sets = new int[(int)Application.Current.Properties["NuOfSets"]];
         }
 
+        /// <summary>
+        /// Loads the workout according to the current day (Monday,Tuesday ..)
+        /// </summary>
         void LoadWorkout()
         {
-            this.Workout = Service.GetWorkoutByDay(0);
-            this.indexOfCurrentExercise = 0;
+            this.Workout = Service.GetWorkoutByDay(Config.AppConfig.CurrentWorkout);
+            if (this.Workout.Exercises == null)
+            {
+                throw new Exception("No Exercise have been added yet.");
+            }
             this.currentExercise = this.Workout.Exercises[this.indexOfCurrentExercise];
         }
 
+        /// <summary>
+        /// This function starts the timer which count how much time
+        /// we spent with the whole workout.
+        /// </summary>
         public void StartTimer()
         {
             TimeSpan _elapsed = new TimeSpan();
@@ -74,10 +85,11 @@ namespace gymbear.ViewModels
             });
         }
 
-        //
-        // This function steps the next exercise until it reaches the last one.
-        // If there are no more exercises it returns false otherwise true;
-        //
+        /// <summary>
+        /// This function steps the next exercise until it reaches the last one.
+        /// If there are no more exercises it returns false otherwise true;
+        /// </summary>
+        /// <returns><c>true</c>, if next exercise was shown, <c>false</c> otherwise.</returns>
         public bool ShowNextExercise()
         {
             this.Sets = new int[(int)Application.Current.Properties["NuOfSets"]];

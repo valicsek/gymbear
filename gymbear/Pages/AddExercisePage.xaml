@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Padding="20" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="gymbear.Pages.AddExercisePage">
+    <StackLayout>
+        <Label Style="{StaticResource label-heading-3}" Text="Name of the exercise"/>
+        <Entry Text="{Binding Exercise.Name}"/>
+        <Label Style="{StaticResource label-heading-3}" Text="Type of the exercise"/>        
+        <Picker SelectedItem="{Binding Exercise.ExerciseType}" ItemsSource="{Binding ExerciseTypes}"/>
+        <Button Style="{StaticResource button-blue}" VerticalOptions="EndAndExpand" Text="Save" Clicked="OnSaveButtonClicked" />            
+        <Button Style="{StaticResource button-green}" Text="Cancel" Clicked="OnCancelButtonClicked" />            
+    </StackLayout>
+</ContentPage>

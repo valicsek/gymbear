@@ -12,7 +12,6 @@ namespace gymbear.ViewModels
         }
 
         public HomeViewModel()
-        {
-        }
+        { }
     }
 }

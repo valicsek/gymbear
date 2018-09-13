@@ -54,7 +54,7 @@ namespace gymbear.Pages
         {
             Switch _sender = sender as Switch;
 
-            if(_sender.IsToggled)
+            if (_sender.IsToggled)
             {
                 Navigation.PushModalAsync(new WorkoutBreaktimePage());
             }

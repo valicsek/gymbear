@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,9 +12,18 @@ namespace gymbear
         public App()
         {
             InitializeComponent();
+            InitializeDatabase();
 
             MainPage mainPage = new MainPage() { Title = "Gymbear" };
             MainPage = new NavigationPage(mainPage);
+        }
+
+        /// <summary>
+        /// Initializes the database.
+        /// </summary>
+        void InitializeDatabase()
+        {
+            Services.Service.InitializeWeek();
         }
 
         protected override void OnStart()

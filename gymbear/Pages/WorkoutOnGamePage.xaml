@@ -1,66 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="gymbear.Pages.WorkoutOnGamePage"
-    Padding="20"
-    BackgroundColor="{StaticResource Accent2}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="gymbear.Pages.WorkoutOnGamePage" Padding="20" BackgroundColor="{StaticResource Accent2}">
     <StackLayout>
-        <Label 
-            Text="{Binding CurrentExercise.Name}"
-            FontAttributes="Bold"
-            FontSize="24"
-            HorizontalOptions="Center"/>
-        <Label 
-            Text="{Binding Timer}"
-            FontSize="18"
-            HorizontalOptions="Center"/>
-        <Frame
-            HasShadow="false"
-            BackgroundColor="White"
-            >
-            <Image
-                MinimumWidthRequest="100"
-                MinimumHeightRequest="100"
-                BackgroundColor="Red"/>
-            <StackLayout>
-                <ListView
-                    ItemsSource="{Binding Sets}"
-                    SeparatorColor="Transparent">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                               <StackLayout
-                                        Orientation="Horizontal">
-                                        <Label 
-                                            Text="Set #"
-                                            FontAttributes="Bold"/>
-                                        <Switch 
-                                            HorizontalOptions="EndAndExpand"
-                                            Toggled="OnSetSwitchToggled"/>
-                                </StackLayout>                                
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>            
-            </StackLayout>
-        </Frame>
-            <Button
-                Text="Next Exercise"
-                Clicked="OnNextExerciseButtonClicked"
-                FontSize="17"
-                BackgroundColor="{StaticResource Accent0}"
-                TextColor="{StaticResource Accent2}"
-                FontAttributes="Bold"
-                BorderRadius="0"
-                VerticalOptions="EndAndExpand"/>
-           <Button
-                Text="Cancel"
-                Clicked="OnCancelButtonClicked"
-                FontSize="17"
-                BackgroundColor="{StaticResource Accent3}"
-                TextColor="{StaticResource Accent2}"
-                FontAttributes="Bold"
-                BorderRadius="0"/>        
+        <Label Style="{StaticResource label-heading-2}" Text="{Binding CurrentExercise.Name}" HorizontalOptions="Center" />
+        <Label Text="{Binding Timer}" FontSize="18" HorizontalOptions="Center" />
+        <Image WidthRequest="100" HeightRequest="200" Source="https://xamarin.com/content/images/pages/forms/example-app.png" />
+        <StackLayout>
+            <ListView RowHeight="70" BackgroundColor="Transparent" ItemsSource="{Binding Sets}" SeparatorColor="Transparent">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Style="{StaticResource frame-box-white}">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Set #" Style="{StaticResource label-heading-3}" />
+                                    <Switch HorizontalOptions="EndAndExpand" Toggled="OnSetSwitchToggled" />
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <Button Style="{StaticResource button-blue}" Text="Next Exercise" Clicked="OnNextExerciseButtonClicked" VerticalOptions="EndAndExpand" />
+        <Button Style="{StaticResource button-green}" Text="Cancel" Clicked="OnCancelButtonClicked" />
     </StackLayout>
 </ContentPage>

@@ -1,5 +1,69 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="gymbear.Pages.AddExerciseToWorkoutPage">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="gymbear.Pages.AddExerciseToWorkoutPage"
+    BackgroundColor="{StaticResource Accent2}"
+    Padding="20">
+    <Frame
+        HasShadow="false">
+        <StackLayout>
+            <SearchBar                
+                TextChanged="OnExerciseSearchBarTextChanged"
+                BackgroundColor="Transparent"
+                Placeholder="Exercise name" />
+            <ScrollView>
+                <ListView
+                    SelectedItem="{Binding Exercise}"
+                    ItemsSource="{Binding Exercises}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label
+                                    Text="{Binding Name}"
+                                    FontAttributes="Bold"/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>                
+            <Label 
+                Text="Exercise name:"
+                FontSize="24"
+                FontAttributes="Bold"/>
+            <Entry
+                Placeholder="Exercise name"
+                Text="{Binding Exercise.Name}"
+                Keyboard="Default"
+                IsSpellCheckEnabled="false"
+                IsTextPredictionEnabled="false"/>
+            <Label
+                Text="Exercise type:"
+                FontAttributes="Bold"
+                FontSize="24"/>
+            <Picker
+                TextColor="Black"
+                ItemsSource="{Binding ExerciseTypes}"
+                SelectedItem="{Binding Exercise.ExerciseType}"/>
+            <Button 
+                Text="Save"
+                Clicked="OnSaveButtonClicked"
+                FontSize="17"
+                BackgroundColor="{StaticResource Accent0}"
+                TextColor="{StaticResource Accent2}"
+                FontAttributes="Bold"
+                VerticalOptions="EndAndExpand"
+                BorderRadius="0"
+            />
+            <Button 
+                Text="Cancel"
+                Clicked="OnCancelButtonClicked"
+                FontSize="17"
+                BackgroundColor="{StaticResource Accent3}"
+                TextColor="{StaticResource Accent2}"
+                FontAttributes="Bold"
+                BorderRadius="0"
+            />
+        </StackLayout>
+    </Frame>
 </ContentPage>

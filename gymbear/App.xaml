@@ -6,6 +6,39 @@
             <Color x:Key="Accent1">#FFFFFF</Color>
             <Color x:Key="Accent2">#F8F8F8</Color>
             <Color x:Key="Accent3">#1CBE0A</Color>
+            <Style x:Key="frame-box-white" TargetType="Frame">
+                <Setter Property="HasShadow" Value="false" />
+                <Setter Property="CornerRadius" Value="6" />
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+            <Style x:Key="label-heading-1" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="36" />
+            </Style>            
+            <Style x:Key="label-heading-2" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="24" />
+            </Style>            
+            <Style x:Key="label-heading-3" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style x:Key="button-blue" TargetType="Button">
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="BackgroundColor" Value="{StaticResource Accent0}" />
+                <Setter Property="TextColor" Value="{StaticResource Accent2}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BorderRadius" Value="0" />
+            </Style>
+            <Style x:Key="button-green" TargetType="Button">
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="BackgroundColor" Value="{StaticResource Accent3}" />
+                <Setter Property="TextColor" Value="{StaticResource Accent2}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BorderRadius" Value="0" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

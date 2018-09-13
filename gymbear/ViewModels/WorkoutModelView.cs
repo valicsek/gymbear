@@ -8,9 +8,34 @@ namespace gymbear.ViewModels
 {
     public class WorkoutModelView : ViewModel
     {
-        public Workout SelectedWorkout { get; set; }
 
-        public Workout Workout { get; set; }
+        public int CurrentWorkoutIndex { get; set; }
+
+        /// <summary>
+        /// The no exercise has been added.
+        /// Further Information:
+        /// https://forums.xamarin.com/discussion/43703/empty-label-when-listview-is-empty
+        /// </summary>
+        private bool noExerciseHasBeenAdded;
+        public bool NoExerciseHasBeenAdded
+        {
+            get => noExerciseHasBeenAdded;
+            set => SetField<bool>(ref noExerciseHasBeenAdded, value);
+        }
+
+        private Workout selectedWorkout;
+        public Workout SelectedWorkout
+        {
+            get => selectedWorkout;
+            set => SetField<Workout>(ref selectedWorkout, value);
+        }
+
+        private Workout workout;
+        public Workout Workout
+        {
+            get => workout;
+            set => SetField<Workout>(ref workout, value);
+        }
 
         private int breakTime;
         public int BreakTime
@@ -33,8 +58,10 @@ namespace gymbear.ViewModels
             set => SetField<int>(ref nuOfRepetitions, value);
         }
 
-        public string Day {
-            get {
+        public string Day
+        {
+            get
+            {
                 return DateTime.Now.ToString("dddd");
             }
         }
@@ -42,8 +69,11 @@ namespace gymbear.ViewModels
         public WorkoutModelView()
         {
             this.SelectedWorkout = null;
-            this.Workout = Service.GetWorkoutByDay(0);
- 
+            this.CurrentWorkoutIndex = Config.AppConfig.CurrentWorkout;
+            this.Workout = Service.GetWorkoutByDay(this.CurrentWorkoutIndex);
+            this.noExerciseHasBeenAdded = this.Workout.Exercises.Count == 0;
+
+
             if (Application.Current.Properties.ContainsKey("BreakTime"))
                 this.BreakTime = (int)Application.Current.Properties["BreakTime"];
             if (Application.Current.Properties.ContainsKey("NuOfSets"))

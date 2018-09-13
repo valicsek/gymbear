@@ -1,5 +1,43 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="gymbear.Pages.ExercisesPage">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="gymbear.Pages.ExercisesPage"
+    BackgroundColor="{StaticResource Accent2}"
+    Padding="20">
+    <StackLayout>
+        <Label
+            Text="Exercises"
+            FontSize="24"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"/>
+        <SearchBar 
+            Placeholder="Exercise name"
+            BackgroundColor="Transparent"
+            TextChanged="OnExerciseSearchTextChanged"
+            />  
+        <Frame
+            HasShadow="false"
+            >
+            <ListView
+                ItemsSource="{Binding Exercises}"
+                SeparatorColor="Transparent">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Edit" />
+                                <MenuItem Clicked="OnExerciseDeleteButtonClicked" Text="Delete" IsDestructive="True" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                            <Label
+                                Text="{Binding Name}"
+                                VerticalOptions="Center"
+                                FontAttributes="Bold"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Frame>
+        <Button Style="{StaticResource button-blue}" Text="Add exercise" Clicked="OnAddExerciseButtonClicked"/>
+    </StackLayout>
 </ContentPage>

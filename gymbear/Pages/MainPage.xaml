@@ -7,5 +7,5 @@
     x:Class="gymbear.MainPage">
         <pages:HomePage Icon="home.png" Title="Home"/>
         <pages:WorkoutPage Icon="workout.png" Title="Workout"/>
-        <pages:HomePage Icon="exercise.png" Title="Exercises"/>
+        <pages:ExercisesPage Icon="exercise.png" Title="Exercises"/>
 </TabbedPage>

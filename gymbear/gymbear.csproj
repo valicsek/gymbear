@@ -22,10 +22,12 @@
     <Folder Include="Config\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
+    <Folder Include="ViewModels\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Images\man-logo-home.png" />
     <None Remove="Assets\Images\man-logo-home.png" />
+    <None Remove="Resources\Images\41129142_1572442199528211_3750241464341233664_n.jpg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Images\man-logo-home.png" />
