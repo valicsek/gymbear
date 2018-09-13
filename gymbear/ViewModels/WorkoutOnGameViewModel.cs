@@ -49,11 +49,12 @@ namespace gymbear.ViewModels
         public WorkoutOnGameViewModel()
         {
             this.BreakTimeLeft = (int)Application.Current.Properties["BreakTime"];
+            this.Sets = new int[(int)Application.Current.Properties["NuOfSets"]];
+
             this.indexOfCurrentExercise = 0;
             this.Timer = "Timer: 00:00:00";
             this.LoadWorkout();
 
-            this.Sets = new int[(int)Application.Current.Properties["NuOfSets"]];
         }
 
         /// <summary>

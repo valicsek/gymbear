@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using gymbear.Helpers;
 using gymbear.Models;
 using SQLite;
 using Xamarin.Forms;
@@ -9,13 +10,19 @@ namespace gymbear.Services
 {
     public abstract class Service
     {
+        public static Week Week { get; set; }
+
         /// <summary>
         /// Initializes the week.
         /// ERROR: if you add complex ObservableCollection, not save properties.
         /// </summary>
         public static void InitializeWeek()
         {
-            if (!Application.Current.Properties.ContainsKey("Week"))
+            try
+            {
+                Week = Serializer.DeSerializeObject<Week>(Config.AppConfig.serializeDatafilePath);
+            }
+            catch (Exception ex)
             {
                 Week week = new Week
                 {
@@ -30,7 +37,7 @@ namespace gymbear.Services
                     };
                 }
 
-                Application.Current.Properties["Week"] = week.ToString();
+                Week = week;
             }
         }
 
@@ -41,7 +48,7 @@ namespace gymbear.Services
         /// <param name="dayIndex">Day index.</param>
         public static Workout GetWorkoutByDay(int dayIndex)
         {
-            return new Workout();
+            return Week.Workout[dayIndex];
         }
 
         /// <summary>
@@ -62,8 +69,7 @@ namespace gymbear.Services
         /// <returns>The week.</returns>
         public static Week GetWeek()
         {
-            Week week = Application.Current.Properties["Week"] as Week;
-            return week;
+            return Week;
         }
 
         /// <summary>
@@ -72,7 +78,8 @@ namespace gymbear.Services
         /// <param name="week">Week.</param>
         public static void UploadWeek(Week week)
         {
-            Application.Current.Properties["Week"] = week;
+            Week = week;
+            Serializer.SerializeObject<Week>(Week, Config.AppConfig.serializeDatafilePath);
         }
 
         /// <summary>
@@ -85,7 +92,7 @@ namespace gymbear.Services
         public static void SaveLocalConfig(string key, object obj)
         {
             var app = (App)Application.Current;
-            app.Properties[key] = obj.ToString();
+            app.Properties[key] = obj;
             app.SavePropertiesAsync();
         }
     }

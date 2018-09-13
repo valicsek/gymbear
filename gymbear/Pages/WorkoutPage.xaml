@@ -14,7 +14,7 @@
                             <ViewCell>
                                 <ViewCell.ContextActions>
                                     <MenuItem Text="Details" />
-                                    <MenuItem Text="Delete" IsDestructive="True" Clicked="OnDeleteExerciseActionClicked" CommandParameter="{Binding .}" />
+                                    <MenuItem Text="Delete" IsDestructive="True" Clicked="OnDeleteWorkoutExerciseActionClicked" CommandParameter="{Binding .}" />
                                 </ViewCell.ContextActions>
                                 <Frame Style="{StaticResource frame-box-white}" Margin="0,10">
                                     <Label Text="{Binding Name}" FontAttributes="Bold" />

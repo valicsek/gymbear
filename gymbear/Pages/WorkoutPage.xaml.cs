@@ -51,6 +51,27 @@ namespace gymbear.Pages
         }
 
         /// <summary>
+        /// Ons the delete workout exercise action clicked.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
+        void OnDeleteWorkoutExerciseActionClicked(object sender, System.EventArgs e)
+        {
+            var _obj = (Exercise)(sender as MenuItem).CommandParameter;
+            try
+            {
+                Week week = Services.Service.GetWeek();
+                week.Workout[this.VM.CurrentWorkoutIndex].Exercises.Remove(_obj);
+                Service.UploadWeek(week);
+                DisplayAlert("Info", "Successfuly deleted", "OK");
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error", ex.Message, "OK");
+            }
+        }
+
+        /// <summary>
         /// The delete exercise action clicked.
         /// </summary>
         /// <param name="sender">Sender.</param>
@@ -64,9 +85,7 @@ namespace gymbear.Pages
 
                 Week week = Services.Service.GetWeek();
                 week.Workout[this.VM.CurrentWorkoutIndex].Exercises.Remove(_obj);
-                Services.Service.UploadWeek(week);
-
-
+                Service.UploadWeek(week);
                 DisplayAlert("Info", "Successfuly deleted", "OK");
             }
             catch (Exception ex)
