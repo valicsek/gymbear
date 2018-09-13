@@ -28,7 +28,14 @@ namespace gymbear.Pages
 
         void OnStartWorkoutButtonClicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new WorkoutOnGamePage());
+            try
+            {
+                Navigation.PushAsync(new WorkoutOnGamePage());
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error", ex.Message, "OK");
+            }
         }
     }
 }

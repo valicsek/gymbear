@@ -63,9 +63,9 @@ namespace gymbear.ViewModels
         void LoadWorkout()
         {
             this.Workout = Service.GetWorkoutByDay(Config.AppConfig.CurrentWorkout);
-            if (this.Workout.Exercises == null)
+            if (this.Workout.Exercises == null || this.Workout.Exercises.Count <= 0)
             {
-                throw new Exception("No Exercise have been added yet.");
+                throw new Exception("No Exercise has been added yet.");
             }
             this.currentExercise = this.Workout.Exercises[this.indexOfCurrentExercise];
         }
