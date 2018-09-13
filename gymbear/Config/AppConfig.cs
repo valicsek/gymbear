@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using gymbear.Models;
 
 namespace gymbear.Config
 {
@@ -10,7 +11,7 @@ namespace gymbear.Config
         static string dbName = "gymbear.sqlite";
         static string _folderpath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
         public static string databasePath = Path.Combine(_folderpath, dbName);
-
+        public static string serializeDatafilePath = Path.Combine(_folderpath, "data.xml");
         //
         // It returns the current index of the day
         // Sunday is 0, monday is 1 and so on
