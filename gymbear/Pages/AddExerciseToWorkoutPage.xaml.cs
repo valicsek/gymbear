@@ -26,9 +26,12 @@ namespace gymbear.Pages
         {
             try
             {
-                // Save to exercises
-                DatabaseService<Exercise>.Insert(this.VM.Exercise);
-   
+                if (ExerciseListView.SelectedItem == null)
+                {
+                    // Save to exercises
+                    DatabaseService<Exercise>.Insert(this.VM.Exercise);
+                }
+
                 Week _week = Service.GetWeek();
                 _week.Workout[Config.AppConfig.CurrentWorkout].Exercises.Add(this.VM.Exercise);
                 Service.UploadWeek(_week);

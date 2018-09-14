@@ -64,6 +64,7 @@ namespace gymbear.Pages
                 week.Workout[this.VM.CurrentWorkoutIndex].Exercises.Remove(_obj);
                 Service.UploadWeek(week);
                 DisplayAlert("Info", "Successfuly deleted", "OK");
+                this.VM.NoExerciseHasBeenAdded = week.Workout[this.VM.CurrentWorkoutIndex].Exercises.Count == 0;
             }
             catch (Exception ex)
             {

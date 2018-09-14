@@ -14,6 +14,7 @@
                 Placeholder="Exercise name" />
             <ScrollView>
                 <ListView
+                    x:Name="ExerciseListView"
                     SelectedItem="{Binding Exercise}"
                     ItemsSource="{Binding Exercises}">
                     <ListView.ItemTemplate>
