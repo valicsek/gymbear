@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using gymbear.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,6 +14,7 @@ namespace gymbear
         {
             InitializeComponent();
             InitializeDatabase();
+            InitalizeDefaultSettings();
 
             MainPage mainPage = new MainPage() { Title = "Gymbear" };
             MainPage = new NavigationPage(mainPage);
@@ -24,6 +26,19 @@ namespace gymbear
         void InitializeDatabase()
         {
             Services.Service.InitializeWeek();
+        }
+
+        /// <summary>
+        /// Initalizes the default settings for Workout
+        /// </summary>
+        void InitalizeDefaultSettings()
+        {
+            if (!Application.Current.Properties.ContainsKey("BreakTime"))
+                Service.SaveLocalConfig("BreakTime", 45);
+            if (!Application.Current.Properties.ContainsKey("BreakTime"))
+                Service.SaveLocalConfig("BreakTime", 3);
+            if (!Application.Current.Properties.ContainsKey("BreakTime"))
+                Service.SaveLocalConfig("BreakTime", 10);
         }
 
         protected override void OnStart()
