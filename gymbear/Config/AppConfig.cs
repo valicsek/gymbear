@@ -9,7 +9,7 @@ namespace gymbear.Config
         // Default BreakTime
         public static int DefaultBreakTimeLeft = 60;
         static string dbName = "gymbear.sqlite";
-        static string _folderpath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
+        static string _folderpath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal));
         public static string databasePath = Path.Combine(_folderpath, dbName);
         public static string serializeDatafilePath = Path.Combine(_folderpath, "data.xml");
         //

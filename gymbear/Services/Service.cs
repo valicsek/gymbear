@@ -59,6 +59,7 @@ namespace gymbear.Services
         {
             using (SQLiteConnection connection = new SQLiteConnection(Config.AppConfig.databasePath))
             {
+                connection.CreateTable<Exercise>();
                 return new ObservableCollection<Exercise>(connection.Table<Exercise>().ToList());
             }
         }
