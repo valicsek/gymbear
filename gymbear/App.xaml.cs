@@ -35,10 +35,10 @@ namespace gymbear
         {
             if (!Application.Current.Properties.ContainsKey("BreakTime"))
                 Service.SaveLocalConfig("BreakTime", 45);
-            if (!Application.Current.Properties.ContainsKey("BreakTime"))
-                Service.SaveLocalConfig("BreakTime", 3);
-            if (!Application.Current.Properties.ContainsKey("BreakTime"))
-                Service.SaveLocalConfig("BreakTime", 10);
+            if (!Application.Current.Properties.ContainsKey("NuOfSets"))
+                Service.SaveLocalConfig("NuOfSets", 3);
+            if (!Application.Current.Properties.ContainsKey("NuOfRepetitions"))
+                Service.SaveLocalConfig("NuOfRepetitions", 10);
         }
 
         protected override void OnStart()
